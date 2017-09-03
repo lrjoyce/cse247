@@ -1,0 +1,114 @@
+Your TA's name:
+Wilson Zhong
+
+
+Students in your studio group:
+
+    Name        Student ID (begins with a 4)
+	
+1.  Agneesh Dasgupta    450680
+2.  Liam Joyce          436678
+3.  Joel Hahn           444788
+4.  Arushee Agrawal     450099
+5.
+6.
+
+Below each question, type in your short, to-the-point answers.
+
+Question A1: 
+	What do you see in both plots? 
+	Are there any differences between the two?
+	What could account for those differences?
+	
+	The Linear class generates a linear graph, while the Quadratic class generates an exponential graph. This difference is caused by the run() method being run n times in the Linear
+	class, while the Quadratic run() method runs n^2 times due to being placed in a nested for loop.
+	
+Discuss this (and all your responses for this assignment) with your TA as you go.
+
+Question A2:
+	Why do the times provided for Quadratic produce such a nice plot, while the original values of Linear did not?
+	
+	The Quadratic run() method produces a nicer plot because it runs for a longer time, so it has more scope to generate a nice plot. The Linear run() method did not run long enough for a 
+	nice plot to be generated. 
+	
+Question A3: 
+	From the runs you have tried so far, how does the placement of ticker.tick() calls affect the plots you see? 
+	In particular, do the changes affect the shapes of the curves, the values plotted, or both
+	
+	The values of the ticks increase by a lot when ticker.tick() is called many times. However, the overall shape of the curve remains exponential.
+	
+Question A4: 
+	In terms of n, how would you characterize, in the most simple terms, 
+	the time and ticks curves that have been generated so far?
+	
+	Ticks and time are both n^2.
+		
+Question A5: 
+	What would happen if you deleted all ticker.tick() calls in the innermost loop,
+	while leaving other calls to ticker.tick() that you just placed in run()?
+	
+	Time remains exponential, but ticks becomes linear since you only call ticker.tick() 3n times.
+	
+Question B1:
+	What do you see? How do the curves reflect the code inside AddsTwoNumbers?
+	Do you think the value of n matters here in terms of the time it takes to perform the operation?
+	Why or why not?
+	
+	Both of the plots are flat lines after increasing to a certain point. The graph shows that the value of n does not affect the number of ticks or the time taken
+	to perform the operation since n is not part of the conditions in the for loop. 
+	
+Question B2:
+	What do the data and plot tell you about the time it takes to allocate an array of n integers?
+	Is it reasonable to say that the line of code
+
+ 		this.array = new int[this.n]
+ 		
+	takes a constant amount of time, independent of the value of this.n?
+	
+	The data and plot tell us that it takes more time to allocate integers as the size of the array increases. The line of code does not take a constant 
+	amount of time and is linearly dependent on the value of n. 
+	
+Question B3:
+	Do the ticks agree in shape with the time we measured in running the Allocates code?
+	
+	The ticks do not agree with the time measured. The plot is a constant flat line. Ticks are not affected by the operation since ticker.tick() is only called as part of the loop, independent of n.
+	
+Question B4:
+	Are the plots more similar to each other than before?
+	What does this tell you about how much time it takes to allocate an array of n integers?
+	
+	Yes, they are both linear now. It takes n amount of time to allocate an array of n integers. 
+	
+Question B5:
+	Which group do you expect to finish first?
+	Can you formalize, in terms of n the amount of work (ticks)
+	that each group must do to write n in the form required for that group?
+
+	Both groups achieve the same result, namely the recording of an integer n.
+
+		Under what circumstances is the decimal notation more efficient than tally marks?
+		Under what circumstances is the tally mark notation more efficient than decimal notation?
+		
+	If you are not sure, take a look the link from the assignment web page.
+	
+	We expect the decimal group to finish first. The tally mark team will take n amount of work to write down the number. The decimal team takes constant time to write down the number.
+	Decimal notation is more efficient when one is trying to save time. Tally marks are easier to update. 
+	
+Question D1:
+	How would you describe the curve you see?
+	As a team, think about possible polynomial functions that could generate such a curve.
+	Write your answer here:
+	
+	It is an exponential curve. n^2 would be a possible function.
+	
+Question E1:
+	What is the closed form solution for T(n)?
+	
+	n^2.
+	
+Question E2:
+	What is the closed form solution for T(n)?
+	Can you express this result in terms of n, as well as k?
+	Write your answer here:
+	
+	
