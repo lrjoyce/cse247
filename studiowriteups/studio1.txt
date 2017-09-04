@@ -8,7 +8,7 @@ Students in your studio group:
 
     Name        Student ID (begins with a 4)
 	
-1.
+1. Liam Joyce	436678
 2.
 3.
 4.
