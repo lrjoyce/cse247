@@ -104,14 +104,16 @@ Question D1:
 Question E1:
 	What is the closed form solution for T(n)?
 	
-	n^2.
+	(n^2 + n)/2
 	
 Question E2:
 	What is the closed form solution for T(n)?
 	Can you express this result in terms of n, as well as k?
 	Write your answer here:
 	
-	n=2^k is the most simple closed form solution. 
+	2^ (( n^2 + n)/2)
 	
-	ln(n) = k*ln(2)
-	in terms of k: ln(n/2) = k
+//	n=2^k is the most simple closed form solution. 
+//	
+//	ln(n) = k*ln(2)
+//	in terms of k: ln(n/2) = k
