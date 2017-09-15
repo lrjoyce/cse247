@@ -21,28 +21,46 @@ Part A
 
 What are the exact, closed-form formulas for the ticker counts in:
 
-	ProbA?   n   (I'm giving you this answer, make sure it agrees with what you saw)
+	ProbA?   n-1   (I'm giving you this answer, make sure it agrees with what you saw)
 
-	ProbB?  
+	ProbB?  n * (n-1)/2
 
-	ProbC?
+	ProbC? n * (n+1)/2
 
-	ProbD?
+	ProbD? n(n+1)(2n+1)/6
 
-	ProbE?
+	ProbE? n(n+1)(2n+1)/6 - n
 
 
 Part B
 
-1.  c =         n0 =
-2.  c =         n0 =
-3.  c =         n0 =
+1.  c = 1         n0 = 1
+2.  c = 100        n0 = 10
+3.  c = ~.0451443 n0 = 100
 
 Part C
 
-1.
+1. 5000 = O(n^2)
+n0=1     c=5000
 
-2.
+2. n=O(an+b)
+1/(2a)=c, n0=b/a, therefore b=1/2, then it is allowed that: a=1, c=1/2 and n0=1/2
 
 Part D
 
+Looking at C2:
+given: an+b = ohm(n)
+
+Put in context of Big-Theta:
+
+an+b=ohm(n)
+	simplifies to n = O(an+b)
+	simplifies to n = c(an+b)
+an+b=O(n)
+
+from before we know that an+b=O(n) simplifies to (b/a)=c(2b), 
+where 1/(2a) = c and n = b/a
+
+c=2a, n0=b/a then an+b = O(n)
+c=.5a, n0 = -2b/a, then an + b = omega(n)
+so an + b = theta(n)

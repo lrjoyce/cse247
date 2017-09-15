@@ -20,6 +20,8 @@ Part A
 
 What are three data types that can serve as T?
 
+int, float, long
+
 Which class did you pick to examine its compareTo method?
 
 How did its compareTo method impose a natural order on that class's instances?

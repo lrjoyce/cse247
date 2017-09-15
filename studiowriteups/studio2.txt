@@ -8,8 +8,8 @@ Students in your studio group:
 
     Name        Student ID (begins with a 4)
 	
-1.
-2.
+1.Liam Joyce	436678
+2.Linghao Bao	449238
 3.
 4.
 5.
@@ -21,21 +21,35 @@ Part A
 
 What do you see in the plots for ticks and time?
 
+	Tick is a clear, smooth quadratic line. 
+	Time is generally quadratic, but has some bumps/kinks in it.
+
 How would you characterize those curves?
+
+	They are both quadratic curves.
 
 Based on the current code for addLast, why do you see this behavior?
 
+	The code has to go through the entire list every time before it can
+	add a new element. 
+	
 Part B
 
 What behavior do you see now for appending n items to a list if you use a tail reference?
-
+	Linear with respect to ticks, and nearly 0 (on average) with respect to time. 
 While we have reasoned so far only about time, if we are adding n elements to the end of a list, what is the asymptotic complexity of the additional space required when using the tail reference?
-
+	If we are adding n elements to the list, we will use n additional spaces, even though we are looking at
+	one n at a time. 
 Under what conditions would you recommend using a linked list with a tail reference vs. a linked list without at tail reference?
+	Tail reference - long lists, adding unknown number of things
+	No Tail Reference - If you are low on memory, the tail reference takes up 1 additional space. Or if you have an
+		immutable list, it doesn't make sense to have a tail pointer. 
 
 Part C
 
 Why does getSize() take the time it does?
-
+	It is linear because getSize() recounts everytime the size of the list. 
 How did you achieve Θ(1) performance for getSize()?
+	We initialized an int at the beginning, that added one everytime we added a number our list. 
+	For the getSize() function, all we do is call that int. 
 

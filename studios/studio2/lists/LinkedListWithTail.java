@@ -5,7 +5,7 @@ import timing.Ticker;
 /**
  * Your assignment is to modify this class so it uses a tail reference
  * 
- * @author roncytron and WhoAreYou
+ * @author roncytron and liamJoyce
  *
  * @param <T>
  */
@@ -13,10 +13,13 @@ public class LinkedListWithTail<T> implements List<T> {
 	
 	private ListNode<T> head;
 	private Ticker ticker;
+	private ListNode<T> tail;
+	private int sizeOfList;
 	
 	public LinkedListWithTail(Ticker ticker) {
 		this.head = null;   // nothing in our list yet
 		this.ticker = ticker;
+		this.tail = null; 
 	}
 
 	/**
@@ -34,41 +37,29 @@ public class LinkedListWithTail<T> implements List<T> {
 			ListNode<T> p = new ListNode<T>();
 			p.value = thing;
 			head = p;
-			ticker.tick(3);  // for the 3 statements above
+			tail = p;
+			ticker.tick(4);  // for the 4 statements above
 		}
 		else {
 			ListNode<T> q = new ListNode<T>();
-			q.value = thing;
-			//
-			// As given, this
-			// searches for the end of the list
-			// Modify this code using your new tail reference
-			//  and get rid of this loop!
-			//
-			ListNode<T> p = head;
-			while (p.next != null) {
-				ticker.tick();
-				p = p.next;
-			}
-			//  p is where it needs to be slide 201
-			p.next = q;
-			ticker.tick(3);  // for the 3 statements not in the loop
+			q.value = thing; //set value in list spot
+
+			tail.next = q; //
+			tail = q;
+			sizeOfList++;
+			ticker.tick(3);  // for the 3 statements 
 		}
 		
 	}
 	
 	/**
 	 * Modify this method so that getting the size of this list
-	 * takes Theta(1) (constant) time.
+	 * takes Theta(1) (constant) ticks.
 	 */
 	@Override
 	public int getSize() {
-		int ans = 0;
-		for (ListNode<T> p = this.head; p != null; p = p.next) {
-			ans = ans + 1;
-			ticker.tick();
-		}
-		return ans;
+		//System.out.println(sizeOfList);
+		return sizeOfList;
 	}
 
 	/**
