@@ -13,25 +13,29 @@ public class OrderedArray<T extends Comparable<T>> implements PriorityQueue<T> {
 	
 	@Override
 	public boolean isEmpty() {
-		//
-		// FIXME
-		//
+		
+		if(array.length <=0) {
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public void insert(T thing) {
-		//
-		// FIXME
-		//
+		//array = new T[array.length +1];
+		for(int i=0; i<=array.length; i++){
+			if(thing <= array[i] && thing=> array[i+1]) {
+				
+			}
+		}
 	}
 	
 	@Override
 	public T extractMin() {
-		//
-		// FIXME
-		//
-		return null;
+		
+		T min = array[0];
+		//remove first element
+		return min;
 	}
 
 }

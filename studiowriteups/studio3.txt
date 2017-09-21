@@ -8,8 +8,8 @@ Students in your studio group:
 
     Name        Student ID (begins with a 4)
 	
-1.
-2.
+1.liam joyce	436678
+2.linghao bao	449238
 3.
 4.
 5.
@@ -20,16 +20,26 @@ Part A
 
 What are three data types that can serve as T?
 
-int, float, long
+	int, float, long
 
 Which class did you pick to examine its compareTo method?
 
+	file
+
 How did its compareTo method impose a natural order on that class's instances?
+
+	it imposes it lexiographically (aka alphabetically). case is only significant
+	in UNIX systems, not windows.
 
 Part B
 
 How does compareTo work?  Does it always return either -1, 0, or +1?
-
+	Yes. if value a is less than value b, it returns -1.
+		 if value a is equal to value b, it returns 0.
+		 if value a is greater than value b, it returns +1. 
+	a.compareTo(b) does a/b. if a/b =1, then the output of compareTo is 0.
+							 if a/b <1, then the output of compareTo is -1.
+							 if a/b >1, then the output of compareTo is 1.
 Part C
 
 From your inspection of the LinkedList<T> class's source code:
@@ -37,21 +47,21 @@ Given a LinkedList<T> of size n, what is the asymptotic complexity, worst-case,
 for performing each of the following operations?
 
   1)  Appending to the end of that list  addLast(..)
-  
+  o(1)
   2)  Prepending to the beginning of that list   addFirst(...)
-  
+  o(1)
   3)  Inserting an element in the middle of the list  add(size/2, .....)
-  
+  o(n)
 And for your implementation of a PriorityQueue using the Unordered List, 
 given n elements already in the queue, what is the asymptotic complexity, 
 worst-case for performing each of the following operations?
   
   4)  extractMin
-  
+  o(n)
   5)  insert
-  
+  o(1) 
   6)  isEmpty
-  
+  o(1)
   
 Part D
 
