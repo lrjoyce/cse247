@@ -60,12 +60,12 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 		//    that.
 		//
 		Decreaser<T> ans = new Decreaser<T>(thing, this, ++size);
-		//
+		
 		// You have to now put ans into the heap array
 		//   Recall in class we reduced insert to decrease
-		//
-		// FIXME
-		//
+
+		array[size]=ans;
+		ticker.tick();
 		return ans;
 	}
 
@@ -96,10 +96,11 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 *     decreased in value
 	 */
 	void decrease(int loc) {
-		//
-		// As described in lecture
-		//
+		//decrease() works bottom up, in the case that
+		//a child becomes lower value than it's parent.
 		
+		//call heapify on decreased child's parent
+		heapify(loc/2);
 	}
 	
 	/**
@@ -111,14 +112,17 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 */
 	public T extractMin() {
 		T ans = array[1].getValue();
-		//
+		
 		// There is effectively a hole at the root, at location 1 now.
 		//    Fix up the heap as described in lecture.
 		//    Be sure to store null in an array slot if it is no longer
 		//      part of the active heap
-		//
-		// FIXME
-		//
+		
+		//set value at array[1] to null,
+		//call heapify. make sure to modify heapify to
+		//always switch null values. 
+		array[1]=null;
+		heapify(1);
 		return ans;
 	}
 
@@ -130,10 +134,46 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 * @param where the index into the array where the parent lives
 	 */
 	private void heapify(int where) {
-		//
-		// As described in lecture
-		//  FIXME
-		//
+		//where=p, so index of p * 2 = child a,
+		//and index of p *2 +1= child b,
+		//compare child a first, then b. 
+		T parent = array[where].getValue();
+		T childA = array[where*2].getValue();
+		T childB = array[where*2+1].getValue();
+		
+		//notes:? do heapify comparing child to parent,
+		//so int where would be for child?
+		
+		
+		//compare to see if parent is larger than childA, or parent is 
+		//null (for example, if the min is removed). 
+		if( parent.compareTo(childA) > 0 || parent == null){
+			//switch childA for parent
+//			T tempValue = childA;
+//			childA = parent;
+//			parent = tempValue;
+			array[where] = new Decreaser<T>(childA, this, where*2);
+			array[where*2] = new Decreaser<T>(parent, this, where);
+			heapify(where*2);
+//			parent = array[where*2].getValue();
+//			childA = array[where*4].getValue();
+//			childB = array[where*4+2].getValue();
+			
+		}else if(parent.compareTo(childB) > 0){
+			//switch childB for parent
+//			T tempValue2 = childB;
+//			childB = parent;
+//			parent = tempValue2;
+			array[where] = new Decreaser<T>(childB, this, where*2+1);
+			array[where*2+1] = new Decreaser<T>(parent, this, where);
+			heapify(where*2+1);
+//			parent = array[where*2].getValue();
+//			childA = array[where*4].getValue();
+//			childB = array[where*4+2].getValue();
+		
+		}
+		
+		
 	}
 	
 	/**
