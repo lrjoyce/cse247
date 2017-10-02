@@ -43,7 +43,7 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 */
 	public Decreaser<T> insert(T thing) {
 	
-		System.out.println("Now trying to insert " + thing );
+		//System.out.println("Now trying to insert " + thing );
 		
 		// Below we create the "handle" through which the value of
 		//    the contained item can be decreased.
@@ -91,18 +91,22 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 */
 	void decrease(int loc) {
 		//SORT BOTTOM TO TOP
-//		int newLoc = loc/2;
-//		System.out.println("old loc is " + loc);
-//		array[loc].loc = newLoc;
-//		loc = newLoc;
+
 		T decValue = array[loc].getValue();
 		T parentValue = array[(loc/2)].getValue();
 		//decrease() works bottom up, in the case that
 		//a child becomes lower value than it's parent.
 		if(decValue.compareTo(parentValue) < 0) {
-			array[loc] = new Decreaser<T> (parentValue, this, loc/2);
-			array[loc/2] = new Decreaser<T> (decValue, this, loc);
-			
+			Decreaser <T> decLoc = array[loc];
+			array[loc]=array[loc/2];
+			array[loc/2] = decLoc;
+			array[loc].loc = loc;
+			array[loc/2].loc = loc/2;
+			decrease(loc/2);		
+		}else {
+			//return if location is 0 or 1, or
+			//when child node is bigger than parent node
+			return;
 		}
 	}
 	
