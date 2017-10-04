@@ -93,32 +93,26 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 */
 	void decrease(int loc) {
 		//SORT BOTTOM TO TOP
-		
-		//T decValue = array[loc].getValue();
-		//T parentValue = array[(loc/2)].getValue();
-		
 		//decrease() works bottom up, in the case that
 		//a child becomes lower value than it's parent.
-		
-		//if(decValue.compareTo(parentValue) < 0) {
-		//WHY DOES JAVA KEEP GIVING ME ERRORS FFS
-		//if(array[loc].getValue().compareTo(array[loc/2].getValue())<0) {
 		Decreaser<T> decValue = array[loc];
 		Decreaser <T> parentValue = array[loc/2];
-		if(loc==0 || loc==1) {
+		
+		if(loc==0 || loc==1 || decValue.getValue().compareTo(parentValue.getValue())>=0 ) {
 			return;
-		}
+		} //return if we are at the header or top of the tree or decValue>parentValue
 		else if(decValue.getValue().compareTo(parentValue.getValue())<0) {
 			Decreaser <T> decLoc = array[loc];
 			array[loc]=array[loc/2];
 			array[loc/2] = decLoc;
 			array[loc].loc = loc;
 			array[loc/2].loc = loc/2;
-			decrease(loc/2);		
-		}else {
-			//return if location is 0 or 1, or
-			//when child node is bigger than parent node
-			return;
+			decrease(loc/2);
+			ticker.tick();
+//		}else {
+//			//return if location is 0 or 1, or
+//			//when child node is bigger than parent node
+//			return;
 		}
 	}
 	
@@ -130,10 +124,12 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 	 *    maintained at the root node (index 1 into the array).
 	 */
 	public T extractMin() {
+		if(size == 0) {
+			return null;
+		}
 		T ans = array[1].getValue();
 		//array[1]= new Decreaser<T>(array[size].getValue(), this, size);
-		array[1]=array[size];
-		array[1].loc=1;
+		
 		// There is effectively a hole at the root, at location 1 now.
 		//    Fix up the heap as described in lecture.
 		//    Be sure to store null in an array slot if it is no longer
@@ -142,15 +138,15 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 		//set value at array[1] to null,
 		//call heapify. make sure to modify heapify to
 		//always switch null values.
-		
+		array[1]=array[size];
+		array[1].loc=1;
 		//FOR EXTRACTMIN - take most recent value,
 		//put it in the hole, (where the most recent value was, put in "null")
 		//compare to smallest child
-		
 		array[size] = null;
 		size--;
-		
 		heapify(1);
+		ticker.tick();
 		return ans;
 	}
 
@@ -185,33 +181,33 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 		//T parent = array[where].getValue();
 		//T childA = array[(where*2)].getValue();
 		//T childB = array[(where*2+1)].getValue();	
+		if(where*2 <= size) {
 		Decreaser<T> parent = array[where];
 		Decreaser<T> childA = array[where*2];
-		Decreaser<T> childB = array[where*2+1];
-		//System.out.println("We made some decreasers for u");
-		
-		if(childA.getValue() != null && childB.getValue() != null) {
-			if(childA.getValue().compareTo(childB.getValue())>= 0) {
-				//if child A is larger than B
-				if( parent.getValue() == null || parent.getValue().compareTo(childB.getValue()) <= 0 ){
-					//switch childB for parent if parent>childB
-						//System.out.println("We switchin parent and childB!");
-						array[where] = childB;
-						array[where*2+1] = parent;
+		if(where*2 +1 <= size) {
+				Decreaser<T> childB = array[where*2+1];
+				if(childA.getValue() != null && childB.getValue() != null) {
+					if(childA.getValue().compareTo(childB.getValue())>= 0) {
+						//if child A is larger than B
+						if( parent.getValue() == null || parent.getValue().compareTo(childB.getValue()) >= 0 ){
+							//switch childB for parent if parent>childB
+							array[where] = childB;
+							array[where*2+1] = parent;
+							array[where].loc=where;
+							array[where*2+1].loc=where*2+1;
+							heapify(where*2+1);
+						} //else {}
+					}else if(parent.getValue().compareTo(childA.getValue()) <= 0 ){
+						//switch childA for parent if parent>childA, assuming that A<B
+						array[where] = childA;
+						array[where*2] = parent;
 						array[where].loc=where;
-						array[where*2+1].loc=where*2+1;
-						heapify(where*2+1);
-				}else if(parent.getValue().compareTo(childA.getValue()) <= 0 ){
-						//switch childA for parent if parent>childA
-				//System.out.println("We switchin parent and childA!");
-				array[where] = childA;
-				array[where*2] = parent;
-				array[where].loc=where;
-				array[where*2].loc=where*2;
-				heapify(where*2);
+						array[where*2].loc=where*2;
+						heapify(where*2);
+					}
+				}
 			}
 		}
-	}
 	}
 	
 	/**
