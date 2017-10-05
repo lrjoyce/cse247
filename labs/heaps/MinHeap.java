@@ -97,7 +97,7 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 		//a child becomes lower value than it's parent.
 		Decreaser<T> decValue = array[loc];
 		Decreaser <T> parentValue = array[loc/2];
-		
+		ticker.tick(2);
 		if(loc==0 || loc==1 || decValue.getValue().compareTo(parentValue.getValue())>=0 ) {
 			return;
 		} //return if we are at the header or top of the tree or decValue>parentValue
@@ -107,8 +107,9 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 			array[loc/2] = decLoc;
 			array[loc].loc = loc;
 			array[loc/2].loc = loc/2;
+			ticker.tick(5);
 			decrease(loc/2);
-			ticker.tick();
+			
 //		}else {
 //			//return if location is 0 or 1, or
 //			//when child node is bigger than parent node
@@ -128,8 +129,6 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 			return null;
 		}
 		T ans = array[1].getValue();
-		//array[1]= new Decreaser<T>(array[size].getValue(), this, size);
-		
 		// There is effectively a hole at the root, at location 1 now.
 		//    Fix up the heap as described in lecture.
 		//    Be sure to store null in an array slot if it is no longer
@@ -147,7 +146,7 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 		size--;
 		//System.out.println("IM WORKING ON IT, MOM");
 		heapify(1);
-		ticker.tick();
+		ticker.tick(5);
 		return ans;
 	}
 
@@ -162,36 +161,53 @@ public class MinHeap<T extends Comparable<T>> implements PriorityQueue<T> {
 		//HEAP FROM TOP TO BOTTOM
 		//where=p, so index of p*2 = child a, and index of p*2+1= child b,
 		//compare child a first, then b. final order should be p<a<b @positions where, where*2, where*2+1
-
+		
 		if(where*2 <= size) {
-		Decreaser<T> parent = array[where];
-		Decreaser<T> childA = array[where*2];
-		if(where*2 +1 <= size) {
+			//if childA index exists, create it
+			Decreaser<T> childA = array[where*2];
+			Decreaser<T> parent = array[where];
+			ticker.tick(2);
+			if(where*2 +1 <= size) {
+				//if childB index exists, create it
 				Decreaser<T> childB = array[where*2+1];
+				ticker.tick(1);
 				if(childA.getValue() != null && childB.getValue() != null) {
 					if(childA.getValue().compareTo(childB.getValue())>= 0) {
 						//if child A is larger than B
-						if( //parent.getValue() == null || 
-								parent.getValue().compareTo(childB.getValue()) >= 0 ){
+						if( parent.getValue() == null || parent.getValue().compareTo(childB.getValue()) >= 0 ){
 							//switch childB for parent if parent>childB
 							array[where] = childB;
 							array[where*2+1] = parent;
 							array[where].loc=where;
 							array[where*2+1].loc=where*2+1;
+							ticker.tick(4);
 							heapify(where*2+1);
+							
 						} //else {} //else B>A
 					}
 					else{ 
-						if(parent.getValue().compareTo(childA.getValue()) >= 0 ){
+						if( parent.getValue().compareTo(childA.getValue()) >= 0 ){
 						//switch childA for parent if parent>childA, assuming that A<B
 						array[where] = childA;
 						array[where*2] = parent;
 						array[where].loc=where;
 						array[where*2].loc=where*2;
+						ticker.tick(4);
 						heapify(where*2);
+						
 					}	
 				}	
 			}
+		}// if childB index does not exist, compare parent to childA
+	else if(parent.getValue() == null ||parent.getValue().compareTo(childA.getValue()) >= 0 ){
+		//switch childA for parent if parent>childA, assuming that A<B
+		array[where] = childA;
+		array[where*2] = parent;
+		array[where].loc=where;
+		array[where*2].loc=where*2;
+		ticker.tick(4);
+		heapify(where*2);
+		
 		}
 	}
 }
