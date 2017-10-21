@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>outputs/heapsort.ticks.JPG</name>
+			<type>1</type>
+			<location>C:/Users/Batman/Downloads/heapsort.ticks.JPG</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -34,8 +34,6 @@ public class ShortestPaths {
 	private Map<Edge, Integer> weights;
 	private Vertex startVertex;
 	private final DirectedGraph g;
-	
-	
 	//
 	// constructor
 	//
@@ -54,12 +52,8 @@ public class ShortestPaths {
 	public void run() {
 		Ticker ticker = new Ticker();
 		MinHeap<VertexAndDist> pq = new MinHeap<VertexAndDist>(30000, ticker);
-
-		//
 		// Initially all vertices are placed in the heap
-		//   infinitely far away from the start vertex
-		//
-		
+		//   infinitely far away from the start vertex		
 		for (Vertex v : g.vertices()) {
 			toEdge.put(v, null);
 			VertexAndDist a = new VertexAndDist(v, inf);
@@ -67,28 +61,36 @@ public class ShortestPaths {
 			map.put(v, d);
 		}
 
-
-		//
 		// Now we decrease the start node's distance from
 		//   itself to 0.
 		// Note how we look up the decreaser using the map...
-		// 
-		Decreaser<VertexAndDist> startVertDist = map.get(startVertex);
-		//
 		// and then decrease it using the Decreaser handle
-		//
-		startVertDist.decrease(startVertDist.getValue().sameVertexNewDistance(0));
-
-
-		//
 		// OK you take it from here
 		// Extract nodes from the pq heap
 		//   and act upon them as instructed in class and the text.
-		//
-		// FIXME
+		//L - plan of attack:
+		//find values from min (base case) to node
+		//store values in pq
+	
+		map.get(startVertex).decrease(map.get(startVertex).getValue().sameVertexNewDistance(0));
+		//act on pq if there are values in it
+		while(pq.isEmpty() == false) {
+			//extract the minimum
+			VertexAndDist theMin = pq.extractMin();
+			for(Edge edgy: theMin.getVertex().edgesTo()) {
+				Vertex nextVertex = edgy.to;
+				//we make a new decreaser for the next vertex
+				Decreaser<VertexAndDist> nextDec = map.get(nextVertex);
+				int currentDistance = nextDec.getValue().getDistance();
+				if(currentDistance > currentDistance + weights.size()) {
+					toEdge.put(nextVertex, edgy);
+					map.put(nextVertex, nextDec);		
+					nextDec.decrease(nextDec.getValue().sameVertexNewDistance(currentDistance + weights.size()));
+				}
+			}	
+		}
 	}
 
-	
 	/**
 	 * Return a List of Edges forming a shortest path from the
 	 *    startVertex to the specified endVertex.  Do this by tracing
@@ -101,11 +103,12 @@ public class ShortestPaths {
 	 */
 	public LinkedList<Edge> returnPath(Vertex endVertex) {
 		LinkedList<Edge> path = new LinkedList<Edge>();
-
-		//
-		// FIXME
-		//
-
+		Vertex  currentVertex = endVertex;
+		while(startVertex != currentVertex) {
+			Edge edgy = toEdge.get(currentVertex);
+			currentVertex = edgy.from;
+			path.addFirst(edgy);
+		}
 		return path;
 	}
 	
