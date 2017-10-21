@@ -1,0 +1,59 @@
+-------------------
+CSE247 Robot tester starts testing spath on 2017-10-21 12:21:39 -0500
+
+========
+Testing in ./GradingRepos/repos/cse247-f17-students-joyce.l: spath as of 2017-10-19 12:30
+========
+Now in: /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l
+Your branch is up-to-date with 'origin/master'.
+HEAD is now at fefc116 R^2 value for img is .9997
+No local changes to save
+
+Updating fefc116..89acec7
+Fast-forward
+ labs/spath/ShortestPaths.java | 53 +++++++++++++++++++++++--------------------
+ 1 file changed, 28 insertions(+), 25 deletions(-)
+Going back in time to: 2017-10-19 12:30
+At hash 89acec79fccf4a660d58104b92deee8f00e8eb35
+
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+copytest:
+     [echo] would copy from /Users/roncytron/git/cse247-f17-students key joyce.l testfilesource testing/TestShortestPathSilent package spath repo ./GradingRepos/repos/cse247-f17-students-joyce.l
+Compiling the code
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+compile:
+     [echo] Compiling spath/ShortestPaths
+    [mkdir] Created dir: /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/bin
+    [javac] Compiling 1 source file to /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/bin
+
+BUILD SUCCESSFUL
+Total time: 1 second
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+compile:
+     [echo] Compiling spath/testing/TestShortestPathSilent
+    [javac] Compiling 1 source file to /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/bin
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+Running test testing.TestShortestPathSilent
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+test:
+    [junit] Running spath.testing.TestShortestPathSilent
+    [junit] Testsuite: spath.testing.TestShortestPathSilent
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.644 sec
+    [junit] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.644 sec
+    [junit] 
+    [junit] Testcase: test took 3.625 sec
+
+BUILD SUCCESSFUL
+Total time: 4 seconds
+================
+Lab is counted as working
+================
+
+CSE247 Robot tester ends testing spath on 2017-10-21 12:21:50 -0500
+-------------------
