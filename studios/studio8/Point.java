@@ -15,11 +15,10 @@ public class Point {
 
 	@Override
 	public int hashCode(){
-		return rand.nextInt();	
+		//return rand.nextInt();
+		return  x*17 + y*31;
 	}
 	
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -35,10 +34,8 @@ public class Point {
 			return false;
 		return true;
 	}
-
 	@Override
 	public String toString() {
 		return "Point [x=" + x + ", y=" + y + "]";
 	}
-
 }

@@ -15,7 +15,10 @@ public class Syrup {
 	}
 
 	public int hashCode(){
-		return rand.nextInt();
+		String lala = brand.substring(0, rand.nextInt());
+		double finalHash = lala.length()+7;
+		finalHash = finalHash * (density+13);
+		return (int) finalHash;
 	}
 
 	@Override

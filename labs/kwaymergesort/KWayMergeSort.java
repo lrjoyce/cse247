@@ -42,9 +42,9 @@ public class KWayMergeSort {
 				i++;
 				ticker.tick(2);
 			}
-			//return recursiveKwaymergesort(splitArray, ticker)[0];
+			return recursiveKwaymergesort(splitArray, ticker)[0];
 			//return input for now until i make teh function above
-			return input;
+			//return input;
 		}else {
 			ticker.tick();
 			//no need to sort anything if there is only 1 item in kway
@@ -52,5 +52,9 @@ public class KWayMergeSort {
 		}
 	}
 	
-	
+	public static Integer[] recursiveKwaymergesort(){
+		return null;
+	}
 }
+	
+	

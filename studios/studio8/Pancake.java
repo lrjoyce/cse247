@@ -1,27 +1,23 @@
 package studio8;
 
+import java.util.Random;
 
 public class Pancake {
-
-
 	public int radius;
 	public boolean wheat;
-
 	public Pancake(int radius, boolean wheat) {
-
 		this.radius = radius;
 		this.wheat = wheat;
 	}
-
 	@Override
 	public int hashCode(){
-		int hash = radius;
+		Random rand = new Random();
+		int hash = radius * rand.nextInt() + 31;
 		if (wheat){
-			hash = hash + 5;
+			hash = hash / 17;
 		}
 		return hash;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
