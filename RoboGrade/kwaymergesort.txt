@@ -1,0 +1,152 @@
+-------------------
+CSE247 Robot tester starts testing kwaymergesort on 2017-10-27 16:57:21 -0500
+
+========
+Testing in ./GradingRepos/repos/cse247-f17-students-joyce.l: kwaymergesort as of 2017-10-26 11:30
+========
+Now in: /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l
+Your branch is up-to-date with 'origin/master'.
+HEAD is now at e40f9af finished studio8. no real work on lab7.
+No local changes to save
+
+Already up-to-date.
+Going back in time to: 2017-10-26 11:30
+At hash 057b38e25c44783c8a7d35fae0b9afd98c662abf
+
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+copytest:
+     [echo] would copy from /Users/roncytron/git/cse247-f17-students key joyce.l testfilesource test/TestMergeSort package kwaymergesort repo ./GradingRepos/repos/cse247-f17-students-joyce.l
+Compiling the code
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+compile:
+     [echo] Compiling kwaymergesort/KWayMergeSort
+    [mkdir] Created dir: /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/bin
+    [javac] Compiling 1 source file to /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/bin
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+compile:
+     [echo] Compiling kwaymergesort/test/TestMergeSort
+    [javac] Compiling 1 source file to /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/bin
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+Running test test.TestMergeSort
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+test:
+    [junit] Running kwaymergesort.test.TestMergeSort
+    [junit] Testsuite: kwaymergesort.test.TestMergeSort
+    [junit] 8-way merge sort of 512 integers
+    [junit] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+    [junit] Output:
+    [junit] 8-way merge sort of 512 integers
+    [junit] 
+    [junit] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec
+    [junit] ------------- Standard Output ---------------
+    [junit] 8-way merge sort of 512 integers
+    [junit] ------------- ---------------- ---------------
+    [junit] 
+    [junit] Testcase: sortTest took 0.004 sec
+    [junit] 	FAILED
+    [junit] At index 0 expected -2140374703 but got -826547118
+    [junit] junit.framework.AssertionFailedError: At index 0 expected -2140374703 but got -826547118
+    [junit] 	at kwaymergesort.test.TestMergeSort.sortOnce(TestMergeSort.java:42)
+    [junit] 	at kwaymergesort.test.TestMergeSort.sortTest(TestMergeSort.java:25)
+    [junit] 
+
+BUILD FAILED
+/Users/tdelanuez/247f17/cse247-support/build.xml:35: Test kwaymergesort.test.TestMergeSort failed
+
+Total time: 0 seconds
+========
+Testing in ./GradingRepos/repos/cse247-f17-students-joyce.l: kwaymergesort as of 2017-11-02 11:30
+========
+Now in: /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l
+Your branch is up-to-date with 'origin/master'.
+HEAD is now at e40f9af finished studio8. no real work on lab7.
+No local changes to save
+
+Already up-to-date.
+Going back in time to: 2017-11-02 11:30
+At hash e40f9af42bccbacc83e6fa9102a48dfb7f786e73
+
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+copytest:
+     [echo] would copy from /Users/roncytron/git/cse247-f17-students key joyce.l testfilesource test/TestMergeSort package kwaymergesort repo ./GradingRepos/repos/cse247-f17-students-joyce.l
+Compiling the code
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+compile:
+     [echo] Compiling kwaymergesort/KWayMergeSort
+    [mkdir] Created dir: /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/bin
+    [javac] Compiling 1 source file to /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/bin
+    [javac] /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/labs/kwaymergesort/KWayMergeSort.java:45: error: method recursiveKwaymergesort in class KWayMergeSort cannot be applied to given types;
+    [javac] 			return recursiveKwaymergesort(splitArray, ticker)[0];
+    [javac] 			       ^
+    [javac]   required: no arguments
+    [javac]   found: Integer[][],Ticker
+    [javac]   reason: actual and formal argument lists differ in length
+    [javac] 1 error
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+compile:
+     [echo] Compiling kwaymergesort/test/TestMergeSort
+    [javac] Compiling 1 source file to /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/bin
+    [javac] /Users/tdelanuez/247f17/cse247-support/GradingRepos/repos/cse247-f17-students-joyce.l/labs/kwaymergesort/KWayMergeSort.java:45: error: method recursiveKwaymergesort in class KWayMergeSort cannot be applied to given types;
+    [javac] 			return recursiveKwaymergesort(splitArray, ticker)[0];
+    [javac] 			       ^
+    [javac]   required: no arguments
+    [javac]   found: Integer[][],Ticker
+    [javac]   reason: actual and formal argument lists differ in length
+    [javac] 1 error
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+Running test test.TestMergeSort
+Buildfile: /Users/tdelanuez/247f17/cse247-support/build.xml
+
+test:
+    [junit] Running kwaymergesort.test.TestMergeSort
+    [junit] Testsuite: kwaymergesort.test.TestMergeSort
+    [junit] 4-way merge sort of 64 integers
+    [junit] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.02 sec
+    [junit] Output:
+    [junit] 4-way merge sort of 64 integers
+    [junit] 
+    [junit] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.02 sec
+    [junit] ------------- Standard Output ---------------
+    [junit] 4-way merge sort of 64 integers
+    [junit] ------------- ---------------- ---------------
+    [junit] 
+    [junit] Testcase: sortTest took 0.002 sec
+    [junit] 	Caused an ERROR
+    [junit] timing/Ticker
+    [junit] java.lang.NoClassDefFoundError: timing/Ticker
+    [junit] 	at kwaymergesort.test.TestMergeSort.sortOnce(TestMergeSort.java:35)
+    [junit] 	at kwaymergesort.test.TestMergeSort.sortTest(TestMergeSort.java:25)
+    [junit] Caused by: java.lang.ClassNotFoundException: timing.Ticker
+    [junit] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+    [junit] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+    [junit] 	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+    [junit] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+    [junit] 
+
+BUILD FAILED
+/Users/tdelanuez/247f17/cse247-support/build.xml:35: Test kwaymergesort.test.TestMergeSort failed
+
+Total time: 0 seconds
+================
+Lab is not counted -- failed unit tests
+================
+
+CSE247 Robot tester ends testing kwaymergesort on 2017-10-27 16:57:30 -0500
+-------------------
