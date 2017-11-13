@@ -26,6 +26,7 @@ public class BST<E> implements SortedSet<E> {
 		BST<String> lonely = new BST<String>(new Ticker());
 		lonely.add("sad");
 		lonely.add("happy");
+		lonely.add("whaaaaaaaa");
 		System.out.println("lonely tree \n" + lonely.dumpTree());
 		BST<Integer> t = new BST<Integer>(new Ticker()); // here, E is Integer
 		Random r = new Random();

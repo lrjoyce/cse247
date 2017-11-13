@@ -49,7 +49,6 @@ public class KWayMergeSort {
 				ticker.tick(2);
 			}
 			return recursiveKwaymergesort(splitArray, ticker)[0];
-			// return input for now until i make teh function above
 			// return input;
 		} else {
 			ticker.tick();
@@ -127,6 +126,5 @@ public class KWayMergeSort {
 		} else {
 			return in;
 		}
-		// tick tock tick tock
 	}
 }

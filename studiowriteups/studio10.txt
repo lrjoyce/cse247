@@ -8,7 +8,7 @@ Students in your studio group:
 
     Name        Student ID (begins with a 4)
 	
-1.
+1.	liam joyce		436678
 2.
 3.
 4.
@@ -20,27 +20,39 @@ Students in your studio group:
 Part A
 
 A1. Why do sad and happy appear as they do? Why is happy indented? What are the parent, left-child, and right-child relationships between happy and sad?
+	Happy is the right child of sad. The "value" of happy is greater than or equal to the "value" of sad. 
+
 
 Modify the code in the main method so that some string appears above sad, indented as much as happy.
 
 A2. What string did you use?
+	whaaaaaaaa
+
 
 In the numbers that follow, find the first and last entries in the tree that is shown (on its side, as discussed in lecture).
+1st- 50
+last- 247
 
 A3. Is the first number always the first line to be shown in such a display?
+	no
 
 A4. Is the last number always the last line to be shown?
+	no
 
 A5. Why do we need addHelper?
+	it handles the flipping so that the tree spreads more evenly
 
 A6. Why is it private instead of public?
+	because it is called within the add function
 
 A7. Does the code actually remove the node containing the value to be removed? If not, what is actually happening?
+	no, it sets it to null. 
 
 A8. Why does the code fail to execute properly?
+	you can't compare colors, the color class doesn't implement comparable. 
 
 A9. Why does eclipse not report a problem when you try to create a BST of type Color?
-
+	Making the BST doesn't use comparable, so it doesn't fail. Calling add uses comparable. 
 
 Part B
 
@@ -48,22 +60,27 @@ Part B
 SortedSetUsingBST (random input)
 
 B1. What behavior do you see in the output? You will likely have to rely on ticks rather than time, because the times are so fast.
+	n for ticks.  
 
 B2. What behavior did you expect to see, and why?
-
+	we expect n ticks as its unsorted
 
 SortedSetUsingBST (sorted input)
 
 B3. What behavior do you see in the output given the sorted input?
+	n^2, the array is smallest to biggest but the tree is biggest to smallest so it is the worst case. 
 
 B4. What behavior did you expect to see, and why?
+	it has to maintain the sorted order when it copies so its n^2
 
 SortedSetUsingUnorderedList
 
 B5. What behavior do you see in the output when a sorted set is implemented by an unordered list? Adding to the list should be quick, so why are we seeing these times?
+	n^2. it goes thru the entire array and then it looks through the entire array, so we get n^2. 
+
 
 B6. What behavior did you expect to see, and why?
-
+	n^2. it goes thru the entire array and then it looks through the entire array, so we get n^2. 
 
 
 

@@ -34,21 +34,15 @@ public class ShortestPaths {
 	private Map<Edge, Integer> weights;
 	private Vertex startVertex;
 	private final DirectedGraph g;
-	//
 	// constructor
-	//
 	public ShortestPaths(DirectedGraph g, Vertex startVertex, Map<Edge,Integer> weights) {
-
 		this.map         = new HashMap<Vertex, Decreaser<VertexAndDist>>();
 		this.toEdge      = new HashMap<Vertex, Edge>();
 		this.weights     = weights;
 		this.startVertex = startVertex;
 		this.g           = g;
 	}
-	
-	//
 	// this method does all the real work
-	//
 	public void run() {
 		Ticker ticker = new Ticker();
 		MinHeap<VertexAndDist> pq = new MinHeap<VertexAndDist>(30000, ticker);
@@ -85,7 +79,7 @@ public class ShortestPaths {
 				if(currentDistance > currentDistance + weights.size()) {
 					toEdge.put(nextVertex, edgy);
 					map.put(nextVertex, nextDec);		
-					nextDec.decrease(nextDec.getValue().sameVertexNewDistance(currentDistance + weights.size()));
+					nextDec.decrease(nextDec.getValue().sameVertexNewDistance(currentDistance + weights.size() ) );
 				}
 			}	
 		}
@@ -111,7 +105,6 @@ public class ShortestPaths {
 		}
 		return path;
 	}
-	
 	/**
 	 * Return the length of all shortest paths.  This method
 	 *    is completed for you, using your solution to returnPath.
@@ -124,8 +117,6 @@ public class ShortestPaths {
 		for(Edge e : path) {
 			pathValue += weights.get(e);
 		}
-		
 		return pathValue;
-		
 	}
 }
