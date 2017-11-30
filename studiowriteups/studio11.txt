@@ -8,7 +8,7 @@ Students in your studio group:
 
     Name        Student ID (begins with a 4)
 	
-1.
+1.liam joyce	436678
 2.
 3.
 4.
@@ -16,10 +16,49 @@ Students in your studio group:
 6.
 
 
+part 1:
+50, 40, 60, 45, 55, 35, 65, 57, 47, 37, 67, 33, 53, 43, 63
 
+part 2, black height of tree:
+after you insert 1 it is 1 until...
+after you insert 4 it is 2 until... 
+after you insert 10 then it is 3 to the end. 
 
+part 4:
+Rebalancing occurs when a node and it's parent are both red. 
 
+Part 5:
+	How are they different from red black trees?
+	AVL retriggers when the hieghts of the two child subtrees differ by more than 1. they are more dense and
+	provide faster lookups.
+	
+	How is their asymptotic performance different?
+	AVL trees are more strictly balance. They have the same time complexity, O(logn)
+	
+	The article above claims they are faster. If so, 
+	why do most libraries implement red-black instead of AVL trees?
+	Red black trees take O(1) extra space and AVL trees take O(N) extra space. 
+	
+Part 6: Depth First Search
+	shirt, watch, undershorts, socks
 
+Parts 7, 8, 9:
+	shirt, belt, tie, jacket, underwear, pants, socks, shoes, watch
+	My pattern is different. The top level nodes are different but their children are mirror images of each other.
+	
+Part 10:
+	If you start from the top left corner and go right to left, it is the same order as the reverse order if 
+	you start at the bottom right corner and go left to right. 
+	
+	If we have a path, top left corner going right to left in the example of 6, it would be:
+	root, shirt, tie, jacket
+	
+	and if we do this from the bottom right corner and go left to right it would read:
+	jacket, tie, shirt, root
+	
+	And these lists are the reverse of each other. You can apply this other graphs. 
+
+	
 
 
 

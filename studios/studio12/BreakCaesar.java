@@ -29,12 +29,24 @@ public class BreakCaesar {
 	 * @return the rotation factor that created the encrypted text
 	 */
 	public int getRotation() {
-		//
 		// Use your mad hacking skills to determine the rotation value
 		// The chars array conveniently has all the characters of the
 		//    rotated message
-		// 
-		return 0; // FIXME
+		int periodIndex=0;
+		//find where the period is. that index-1 is an 'a'
+		for (int i=0; i<message.length; i++) {
+			if (chars[i] == '.') {
+				periodIndex = i-1;
+			}
+		}
+		//while that char not a, subtract by 1, add to counter by one
+		//the 'a' character has a "value" of 0 so we can count backward until the rot value is found
+		int counter = 0;
+		while (chars[periodIndex] != 'a') {
+			chars[periodIndex]--;
+			counter++;
+		}
+		return counter;
 	}
 	
 	/**
